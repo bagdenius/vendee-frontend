@@ -19,3 +19,8 @@ export interface IProductCreate extends Pick<
 	IProduct,
 	'title' | 'description' | 'price' | 'images'
 > {}
+
+export interface IProductUpdate extends Pick<
+	IProduct,
+	'title' | 'description' | 'price' | 'images' | 'category' | 'color'
+> {}

@@ -9,3 +9,5 @@ export interface IReview {
 }
 
 export interface IReviewCreate extends Pick<IReview, 'text' | 'rating'> {}
+
+export interface IReviewUpdate extends Pick<IReview, 'text' | 'rating'> {}

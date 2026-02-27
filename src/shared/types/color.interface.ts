@@ -7,3 +7,5 @@ export interface IColor {
 }
 
 export interface IColorCreate extends Pick<IColor, 'name' | 'value'> {}
+
+export interface IColorUpdate extends Pick<IColor, 'name' | 'value'> {}

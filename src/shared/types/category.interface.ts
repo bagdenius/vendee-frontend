@@ -10,3 +10,8 @@ export interface ICategoryCreate extends Pick<
 	ICategory,
 	'title' | 'description'
 > {}
+
+export interface ICategoryUpdate extends Pick<
+	ICategory,
+	'title' | 'description'
+> {}
