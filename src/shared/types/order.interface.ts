@@ -42,4 +42,16 @@ export interface IOrder {
 	createdAt: string;
 }
 
+export interface IOrderPlace {
+	status?: OrderStatus;
+	items: IOrderItem[];
+}
+
 export type OrderStatus = 'pending' | 'paid';
+
+export interface IOrderItem {
+	quantity: number;
+	price: number;
+	storeId: string;
+	productId: string;
+}
