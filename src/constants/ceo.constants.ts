@@ -1,7 +1,11 @@
+export const SITE_TITLE_DEFAULT = 'Vendee';
+export const SITE_TITLE_TEMPLATE = `${SITE_TITLE_DEFAULT} | %s`;
+
 export const SITE_TITLE = {
-	default: 'Vendee – Global Online Marketplace',
-	template: '%s | Vendee',
+	default: SITE_TITLE_DEFAULT,
+	template: SITE_TITLE_TEMPLATE,
 };
+
 export const SITE_DESCIPTION =
 	'Welcome to Vendee - modern global online marketplace and store where you can buy and sell products easily, securely, and without limits.';
 
