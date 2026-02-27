@@ -2,6 +2,7 @@ export * from './auth.interface';
 export * from './cart.interface';
 export * from './category.interface';
 export * from './color.interface';
+export * from './file.interface';
 export * from './order.interface';
 export * from './product.interface';
 export * from './review.interface';
