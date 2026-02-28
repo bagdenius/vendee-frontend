@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
-import Dashboard from './Dashboard';
+import Store from './Store';
 import { NO_INDEX_PAGE } from '@/constants';
 
 export const metadata: Metadata = {
-	title: 'Dashboard',
+	title: 'Store management',
 	...NO_INDEX_PAGE,
 };
 
-export default function DashboardPage() {
-	return <Dashboard />;
+export default function StorePage() {
+	return <Store />;
 }

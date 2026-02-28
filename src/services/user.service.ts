@@ -5,11 +5,11 @@ import { axiosWithAuth } from '@/api';
 
 class UserService {
 	async getProfile() {
-		const response = await axiosWithAuth<IUser>({
+		const { data } = await axiosWithAuth<IUser>({
 			url: API_URL.users('/profile'),
 			method: 'GET',
 		});
-		return response;
+		return data;
 	}
 
 	async toggleFavorite(productId: string) {
