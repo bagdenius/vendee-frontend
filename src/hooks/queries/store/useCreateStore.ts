@@ -13,7 +13,7 @@ export function useCreateStore() {
 	const queryClient = useQueryClient();
 
 	const { mutate: createStore, isPending: isCreating } = useMutation({
-		mutationKey: ['create store'],
+		mutationKey: ['store', 'create'],
 		mutationFn: (data: IStoreCreate) => storeService.create(data),
 		onSuccess(store) {
 			queryClient.invalidateQueries({ queryKey: ['profile'] });
@@ -21,7 +21,7 @@ export function useCreateStore() {
 			router.push(STORE_URL.home(store.id));
 		},
 		onError() {
-			toast.error('An error occured while creating store');
+			toast.error('An error occured while creating a store');
 		},
 	});
 	return useMemo(

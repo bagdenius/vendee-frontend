@@ -17,14 +17,14 @@ export function useUpdateStore() {
 	});
 
 	const { mutate: updateStore, isPending: isUpdating } = useMutation({
-		mutationKey: ['update store'],
+		mutationKey: ['store', 'update'],
 		mutationFn: (data: IStoreUpdate) => storeService.update(storeId, data),
 		onSuccess() {
 			queryClient.invalidateQueries({ queryKey: ['profile'] });
 			toast.success('Store updated');
 		},
 		onError() {
-			toast.error('An error occured while updating store');
+			toast.error('An error occured while updating a store');
 		},
 	});
 	return useMemo(

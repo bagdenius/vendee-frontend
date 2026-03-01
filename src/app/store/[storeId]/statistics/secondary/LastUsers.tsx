@@ -36,7 +36,7 @@ export default function LastUsers({ data }: LastUsersProps) {
 								<p>{user.email}</p>
 							</div>
 							<div className='ml-auto font-medium'>
-								+{formatPrice(user.total / 100)}
+								+{formatPrice(user.total)}
 							</div>
 						</div>
 					))

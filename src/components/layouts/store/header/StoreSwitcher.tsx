@@ -42,7 +42,7 @@ export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 		<Popover open={isOpen} onOpenChange={setIsOpen}>
 			<PopoverTrigger asChild>
 				<Button
-					className='w-52 leading-tight'
+					className='w-52 leading-none'
 					variant='outline'
 					size='sm'
 					role='combobox'
@@ -50,10 +50,10 @@ export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 					aria-label='Select store'
 				>
 					<StoreIcon className='mr-1 size-4' />
-					<p className='line-clamp-1'>
+					<span className='line-clamp-1'>
 						{items.find(store => store.id === params.storeId)?.title ||
 							'Select store'}
-					</p>
+					</span>
 					<ChevronsUpDown className='ml-auto size-4 shrink-0 opacity-50' />
 				</Button>
 			</PopoverTrigger>

@@ -30,7 +30,7 @@ export default function MainStatisticsItem({ item }: MainStatisticsItemProps) {
 					{item.id !== 1 ? (
 						<CountUp end={item.value} />
 					) : (
-						<CountUp end={item.value / 100} formattingFn={formatPrice} />
+						<CountUp end={item.value} formattingFn={formatPrice} />
 					)}
 				</h2>
 			</CardContent>
