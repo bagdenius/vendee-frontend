@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronsUpDown, Plus, StoreIcon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import CreateStoreModal from '@/components/modals/CreateStoreModal';
@@ -30,6 +30,7 @@ interface StoreSwitcherProps {
 
 export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 	const [isOpen, setIsOpen] = useState(false);
+	const params = useParams<{ storeId: string }>();
 	const router = useRouter();
 
 	const onStoreSelect = (storeId: string) => {
@@ -41,15 +42,18 @@ export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 		<Popover open={isOpen} onOpenChange={setIsOpen}>
 			<PopoverTrigger asChild>
 				<Button
-					className='w-52'
+					className='w-52 leading-tight'
 					variant='outline'
 					size='sm'
 					role='combobox'
 					aria-expanded={isOpen}
 					aria-label='Select store'
 				>
-					<StoreIcon className='mr-2 size-4' />
-					Current store{' '}
+					<StoreIcon className='mr-1 size-4' />
+					<p className='line-clamp-1'>
+						{items.find(store => store.id === params.storeId)?.title ||
+							'Current store'}
+					</p>
 					<ChevronsUpDown className='ml-auto size-4 shrink-0 opacity-50' />
 				</Button>
 			</PopoverTrigger>
