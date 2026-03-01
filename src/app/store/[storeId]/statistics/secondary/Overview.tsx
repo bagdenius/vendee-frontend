@@ -28,7 +28,7 @@ export default function Overview({ data }: OverviewProps) {
 		<Card className='border-none drop-shadow-sm'>
 			<CardHeader className='flex flex-col items-stretch border-b'>
 				<CardTitle className='line-clamp-1 text-xl font-medium tracking-tight'>
-					Revenue
+					Monthly sales
 				</CardTitle>
 			</CardHeader>
 			<CardContent>

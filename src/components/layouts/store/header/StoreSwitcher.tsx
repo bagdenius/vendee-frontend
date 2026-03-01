@@ -52,7 +52,7 @@ export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 					<StoreIcon className='mr-1 size-4' />
 					<p className='line-clamp-1'>
 						{items.find(store => store.id === params.storeId)?.title ||
-							'Current store'}
+							'Select store'}
 					</p>
 					<ChevronsUpDown className='ml-auto size-4 shrink-0 opacity-50' />
 				</Button>

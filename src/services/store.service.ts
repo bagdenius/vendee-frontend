@@ -1,12 +1,12 @@
 import { API_URL } from '@/shared/config';
 import { IStore, IStoreCreate, IStoreUpdate } from '@/shared/types';
 
-import { axiosClassic, axiosWithAuth } from '@/api';
+import { axiosWithAuth } from '@/api';
 
 class StoreService {
 	async getById(storeId: string) {
-		const { data } = await axiosClassic<IStore[]>({
-			url: API_URL.stores(`${storeId}`),
+		const { data } = await axiosWithAuth<IStore>({
+			url: API_URL.stores(`/${storeId}`),
 			method: 'GET',
 		});
 		return data;
@@ -23,7 +23,7 @@ class StoreService {
 
 	async update(storeId: string, data: IStoreUpdate) {
 		const { data: updated } = await axiosWithAuth<IStore>({
-			url: API_URL.stores(`${storeId}`),
+			url: API_URL.stores(`/${storeId}`),
 			method: 'PUT',
 			data,
 		});
@@ -32,7 +32,7 @@ class StoreService {
 
 	async delete(storeId: string) {
 		await axiosWithAuth({
-			url: API_URL.stores(`${storeId}`),
+			url: API_URL.stores(`/${storeId}`),
 			method: 'DELETE',
 		});
 	}
