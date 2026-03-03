@@ -13,7 +13,7 @@ class CategoryService {
 	}
 
 	async getById(categoryId: string) {
-		const { data } = await axiosClassic<ICategory[]>({
+		const { data } = await axiosClassic<ICategory>({
 			url: API_URL.categories(`/${categoryId}`),
 			method: 'GET',
 		});

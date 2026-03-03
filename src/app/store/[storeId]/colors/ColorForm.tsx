@@ -112,7 +112,6 @@ export default function ColorForm({ color }: ColorFormProps) {
 									<FormControl>
 										<Input
 											id='value'
-											step='0.01'
 											placeholder='#F77E2D'
 											disabled={isCreating || isUpdating}
 											{...field}
