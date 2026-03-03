@@ -96,7 +96,7 @@ export const productColumns: ColumnDef<IProductColumn>[] = [
 					<Link href={PUBLIC_URL.product(row.original.id)} target='_blank'>
 						<DropdownMenuItem className='cursor-pointer'>
 							<ExternalLink className='mr-2 size-4' />
-							Open page
+							Product page
 						</DropdownMenuItem>
 					</Link>
 					<Link

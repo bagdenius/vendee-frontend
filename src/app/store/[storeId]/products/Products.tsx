@@ -9,7 +9,7 @@ import DataTableLoading from '@/components/data-table/DataTableLoading';
 import { Button } from '@/components/ui/Button';
 import Heading from '@/components/ui/Heading';
 
-import { useProducts } from '@/hooks/queries/products/useProducts';
+import { useProducts } from '@/hooks/queries/product/useProducts';
 
 import { STORE_URL } from '@/shared/config';
 
@@ -41,7 +41,7 @@ export default function Products() {
 				<>
 					<div className='flex items-center justify-between'>
 						<Heading
-							title={`Products (${products?.length})`}
+							title={`Products (${products?.length || '0'})`}
 							description='All products from your store'
 						/>
 						<div className='flex items-center gap-x-4'>

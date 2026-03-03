@@ -6,12 +6,15 @@ import { toast } from 'sonner';
 import { productService } from '@/services';
 
 export function useDeleteProduct() {
-	const { storeId } = useParams<{ storeId: string }>();
+	const { productId, storeId } = useParams<{
+		productId: string;
+		storeId: string;
+	}>();
 	const queryClient = useQueryClient();
 
-	const { mutate: deleteProduct, isPending: isCreating } = useMutation({
+	const { mutate: deleteProduct, isPending: isDeleting } = useMutation({
 		mutationKey: ['product', 'delete'],
-		mutationFn: () => productService.delete(storeId),
+		mutationFn: () => productService.delete(productId),
 		onSuccess() {
 			queryClient.invalidateQueries({
 				queryKey: ['products', storeId],
@@ -24,7 +27,7 @@ export function useDeleteProduct() {
 	});
 
 	return useMemo(
-		() => ({ deleteProduct, isCreating }),
-		[deleteProduct, isCreating],
+		() => ({ deleteProduct, isDeleting }),
+		[deleteProduct, isDeleting],
 	);
 }

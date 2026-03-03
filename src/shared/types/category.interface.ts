@@ -6,12 +6,7 @@ export interface ICategory {
 	createdAt: string;
 }
 
-export interface ICategoryCreate extends Pick<
-	ICategory,
-	'title' | 'description'
-> {}
-
-export interface ICategoryUpdate extends Pick<
+export interface ICategoryCreateUpdate extends Pick<
 	ICategory,
 	'title' | 'description'
 > {}

@@ -14,12 +14,10 @@ export interface IProduct {
 	storeId: string;
 }
 
-export interface IProductCreate extends Pick<
+export interface IProductCreateUpdate extends Pick<
 	IProduct,
 	'title' | 'description' | 'price' | 'images'
-> {}
-
-export interface IProductUpdate extends Pick<
-	IProduct,
-	'title' | 'description' | 'price' | 'images' | 'category' | 'color'
-> {}
+> {
+	categoryId: string;
+	colorId: string;
+}

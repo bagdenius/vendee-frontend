@@ -23,7 +23,7 @@ class ReviewService {
 
 	async update(reviewId: string, data: IReviewUpdate) {
 		const { data: updated } = await axiosWithAuth<IReview>({
-			url: API_URL.reviews(`${reviewId}`),
+			url: API_URL.reviews(`/${reviewId}`),
 			method: 'PUT',
 			data,
 		});
@@ -32,7 +32,7 @@ class ReviewService {
 
 	async delete(reviewId: string) {
 		await axiosWithAuth({
-			url: API_URL.reviews(`${reviewId}`),
+			url: API_URL.reviews(`/${reviewId}`),
 			method: 'DELETE',
 		});
 	}

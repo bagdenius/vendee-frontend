@@ -1,5 +1,5 @@
 import { API_URL } from '@/shared/config';
-import { IProduct, IProductCreate, IProductUpdate } from '@/shared/types';
+import { IProduct, IProductCreateUpdate } from '@/shared/types';
 
 import { axiosClassic, axiosWithAuth } from '@/api';
 
@@ -14,15 +14,15 @@ class ProductService {
 	}
 
 	async getById(productId: string) {
-		const { data } = await axiosClassic<IProduct[]>({
-			url: API_URL.products(`${productId}`),
+		const { data } = await axiosClassic<IProduct>({
+			url: API_URL.products(`/${productId}`),
 			method: 'GET',
 		});
 		return data;
 	}
 
 	async getByStoreId(storeId: string) {
-		const { data } = await axiosWithAuth<IProduct[]>({
+		const { data } = await axiosClassic<IProduct[]>({
 			url: API_URL.products(`/store/${storeId}`),
 			method: 'GET',
 		});
@@ -53,7 +53,7 @@ class ProductService {
 		return data;
 	}
 
-	async create(data: IProductCreate, storeId: string) {
+	async create(data: IProductCreateUpdate, storeId: string) {
 		const { data: created } = await axiosWithAuth<IProduct>({
 			url: API_URL.products(`/store/${storeId}`),
 			method: 'POST',
@@ -62,9 +62,9 @@ class ProductService {
 		return created;
 	}
 
-	async update(productId: string, data: IProductUpdate) {
+	async update(productId: string, data: IProductCreateUpdate) {
 		const { data: updated } = await axiosWithAuth<IProduct>({
-			url: API_URL.products(`${productId}`),
+			url: API_URL.products(`/${productId}`),
 			method: 'PUT',
 			data,
 		});
@@ -73,7 +73,7 @@ class ProductService {
 
 	async delete(productId: string) {
 		await axiosWithAuth({
-			url: API_URL.products(`${productId}`),
+			url: API_URL.products(`/${productId}`),
 			method: 'DELETE',
 		});
 	}

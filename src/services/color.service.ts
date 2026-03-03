@@ -1,5 +1,5 @@
 import { API_URL } from '@/shared/config';
-import { IColor, IColorCreate, IColorUpdate } from '@/shared/types';
+import { IColor, IColorCreateUpdate } from '@/shared/types';
 
 import { axiosClassic, axiosWithAuth } from '@/api';
 
@@ -14,7 +14,7 @@ class ColorService {
 
 	async getById(colorId: string) {
 		const { data } = await axiosClassic<IColor[]>({
-			url: API_URL.colors(`${colorId}`),
+			url: API_URL.colors(`/${colorId}`),
 			method: 'GET',
 		});
 		return data;
@@ -28,7 +28,7 @@ class ColorService {
 		return data;
 	}
 
-	async create(data: IColorCreate, storeId: string) {
+	async create(data: IColorCreateUpdate, storeId: string) {
 		const { data: created } = await axiosWithAuth<IColor>({
 			url: API_URL.colors(`/store/${storeId}`),
 			method: 'POST',
@@ -37,9 +37,9 @@ class ColorService {
 		return created;
 	}
 
-	async update(colorId: string, data: IColorUpdate) {
+	async update(colorId: string, data: IColorCreateUpdate) {
 		const { data: updated } = await axiosWithAuth<IColor>({
-			url: API_URL.colors(`${colorId}`),
+			url: API_URL.colors(`/${colorId}`),
 			method: 'PUT',
 			data,
 		});
@@ -48,7 +48,7 @@ class ColorService {
 
 	async delete(colorId: string) {
 		await axiosWithAuth({
-			url: API_URL.colors(`${colorId}`),
+			url: API_URL.colors(`/${colorId}`),
 			method: 'DELETE',
 		});
 	}

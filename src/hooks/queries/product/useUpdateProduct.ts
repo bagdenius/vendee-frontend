@@ -3,7 +3,7 @@ import { useParams } from 'next/navigation';
 import { useMemo } from 'react';
 import { toast } from 'sonner';
 
-import { IProductUpdate } from '@/shared/types';
+import { IProductCreateUpdate } from '@/shared/types';
 
 import { productService } from '@/services';
 
@@ -16,7 +16,7 @@ export function useUpdateProduct() {
 
 	const { mutate: updateProduct, isPending: isUpdating } = useMutation({
 		mutationKey: ['product', 'update'],
-		mutationFn: (data: IProductUpdate) =>
+		mutationFn: (data: IProductCreateUpdate) =>
 			productService.update(productId, data),
 		onSuccess() {
 			queryClient.invalidateQueries({ queryKey: ['products', storeId] });

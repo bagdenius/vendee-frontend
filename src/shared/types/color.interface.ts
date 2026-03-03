@@ -6,6 +6,4 @@ export interface IColor {
 	createdAt: string;
 }
 
-export interface IColorCreate extends Pick<IColor, 'name' | 'value'> {}
-
-export interface IColorUpdate extends Pick<IColor, 'name' | 'value'> {}
+export interface IColorCreateUpdate extends Pick<IColor, 'name' | 'value'> {}

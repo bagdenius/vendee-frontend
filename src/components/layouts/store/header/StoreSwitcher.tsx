@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronsUpDown, Plus, StoreIcon } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import CreateStoreModal from '@/components/modals/CreateStoreModal';
@@ -21,7 +21,6 @@ import {
 	PopoverTrigger,
 } from '@/components/ui/Popover';
 
-import { STORE_URL } from '@/shared/config';
 import { IStore } from '@/shared/types';
 
 interface StoreSwitcherProps {
@@ -32,10 +31,12 @@ export default function StoreSwitcher({ items }: StoreSwitcherProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const params = useParams<{ storeId: string }>();
 	const router = useRouter();
+	const pathname = usePathname();
 
 	const onStoreSelect = (storeId: string) => {
 		setIsOpen(false);
-		router.push(STORE_URL.home(storeId));
+		const newPath = pathname.replace(params.storeId, storeId);
+		router.push(newPath);
 	};
 
 	return (

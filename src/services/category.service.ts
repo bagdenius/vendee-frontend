@@ -1,5 +1,5 @@
 import { API_URL } from '@/shared/config';
-import { ICategory, ICategoryCreate, ICategoryUpdate } from '@/shared/types';
+import { ICategory, ICategoryCreateUpdate } from '@/shared/types';
 
 import { axiosClassic, axiosWithAuth } from '@/api';
 
@@ -14,7 +14,7 @@ class CategoryService {
 
 	async getById(categoryId: string) {
 		const { data } = await axiosClassic<ICategory[]>({
-			url: API_URL.categories(`${categoryId}`),
+			url: API_URL.categories(`/${categoryId}`),
 			method: 'GET',
 		});
 		return data;
@@ -28,7 +28,7 @@ class CategoryService {
 		return data;
 	}
 
-	async create(data: ICategoryCreate, storeId: string) {
+	async create(data: ICategoryCreateUpdate, storeId: string) {
 		const { data: created } = await axiosWithAuth<ICategory>({
 			url: API_URL.categories(`/store/${storeId}`),
 			method: 'POST',
@@ -37,9 +37,9 @@ class CategoryService {
 		return created;
 	}
 
-	async update(categoryId: string, data: ICategoryUpdate) {
+	async update(categoryId: string, data: ICategoryCreateUpdate) {
 		const { data: updated } = await axiosWithAuth<ICategory>({
-			url: API_URL.categories(`${categoryId}`),
+			url: API_URL.categories(`/${categoryId}`),
 			method: 'PUT',
 			data,
 		});
@@ -48,7 +48,7 @@ class CategoryService {
 
 	async delete(categoryId: string) {
 		await axiosWithAuth({
-			url: API_URL.categories(`${categoryId}`),
+			url: API_URL.categories(`/${categoryId}`),
 			method: 'DELETE',
 		});
 	}
