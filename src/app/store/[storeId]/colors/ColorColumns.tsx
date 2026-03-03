@@ -1,10 +1,5 @@
 import { ColumnDef } from '@tanstack/react-table';
-import {
-	ArrowUpDown,
-	ExternalLink,
-	MoreHorizontal,
-	Pencil,
-} from 'lucide-react';
+import { ArrowUpDown, MoreHorizontal, Pencil } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/Button';
@@ -16,7 +11,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/DropdownMenu';
 
-import { PUBLIC_URL, STORE_URL } from '@/shared/config';
+import { STORE_URL } from '@/shared/config';
 import { IColor } from '@/shared/types';
 
 export const colorColumns: ColumnDef<IColor>[] = [

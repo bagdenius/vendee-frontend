@@ -14,25 +14,13 @@ import {
 	FormMessage,
 } from '@/components/ui/Form';
 import Heading from '@/components/ui/Heading';
-import ImageUpload from '@/components/ui/ImageUpload';
 import { Input } from '@/components/ui/Input';
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from '@/components/ui/Select';
-import { Textarea } from '@/components/ui/Textarea';
 
 import { useCreateColor } from '@/hooks/queries/color/useCreateColor';
 import { useDeleteColor } from '@/hooks/queries/color/useDeleteColor';
 import { useUpdateColor } from '@/hooks/queries/color/useUpdateColor';
 
 import { IColor, IColorCreateUpdate } from '@/shared/types';
-
-import { convertPriceToUnit, parsePrice } from '@/utils/string/formatPrice';
 
 interface ColorFormProps {
 	color?: IColor;
