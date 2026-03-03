@@ -13,7 +13,7 @@ class ColorService {
 	}
 
 	async getById(colorId: string) {
-		const { data } = await axiosClassic<IColor[]>({
+		const { data } = await axiosClassic<IColor>({
 			url: API_URL.colors(`/${colorId}`),
 			method: 'GET',
 		});
