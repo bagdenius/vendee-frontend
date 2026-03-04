@@ -6,7 +6,7 @@ export const SITE_TITLE = {
 	template: SITE_TITLE_TEMPLATE,
 };
 
-export const SITE_DESCIPTION =
+export const SITE_DESCRIPTION =
 	'Welcome to Vendee - modern global online marketplace and store where you can buy and sell products easily, securely, and without limits.';
 
 export const SITE_KEYWORDS = [
