@@ -47,7 +47,7 @@ export interface IOrderPlace {
 	items: IOrderItem[];
 }
 
-export type OrderStatus = 'pending' | 'paid';
+export type OrderStatus = 'PENDING' | 'PAID';
 
 export interface IOrderItem {
 	quantity: number;
