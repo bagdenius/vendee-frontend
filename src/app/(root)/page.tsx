@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: 'Global Online Marketplace' };
 // export const revalidate = 60;
 
 async function getProducts() {
-	return (await productService.getPopular()).slice(0, 6);
+	return (await productService.getPopular()).slice(0, 12);
 }
 
 export default async function HomePage() {
