@@ -10,6 +10,4 @@ export interface IReview {
 	createdAt: string;
 }
 
-export interface IReviewCreate extends Pick<IReview, 'text' | 'rating'> {}
-
-export interface IReviewUpdate extends Pick<IReview, 'text' | 'rating'> {}
+export interface IReviewCreateUpdate extends Pick<IReview, 'text' | 'rating'> {}

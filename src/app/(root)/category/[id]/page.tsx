@@ -42,8 +42,6 @@ export default async function CategoryPage({
 	params: Promise<{ id: string }>;
 }) {
 	const { id } = await params;
-	console.log('PARAMS:', id);
-
 	const { category, products } = await getProducts(id);
 
 	return (

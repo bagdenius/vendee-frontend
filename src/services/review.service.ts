@@ -1,5 +1,5 @@
 import { API_URL } from '@/shared/config';
-import { IReview, IReviewCreate, IReviewUpdate } from '@/shared/types';
+import { IReview, IReviewCreateUpdate, IReviewCreateUpdate } from '@/shared/types';
 
 import { axiosClassic, axiosWithAuth } from '@/api';
 
@@ -12,7 +12,7 @@ class ReviewService {
 		return data;
 	}
 
-	async create(data: IReviewCreate, storeId: string, productId: string) {
+	async create(data: IReviewCreateUpdate, storeId: string, productId: string) {
 		const { data: created } = await axiosWithAuth<IReview>({
 			url: API_URL.reviews(`/store/${storeId}/product/${productId}`),
 			method: 'POST',
@@ -21,7 +21,7 @@ class ReviewService {
 		return created;
 	}
 
-	async update(reviewId: string, data: IReviewUpdate) {
+	async update(reviewId: string, data: IReviewCreateUpdate) {
 		const { data: updated } = await axiosWithAuth<IReview>({
 			url: API_URL.reviews(`/${reviewId}`),
 			method: 'PUT',

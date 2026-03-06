@@ -6,9 +6,9 @@ export const PUBLIC_URL = {
 	home: () => PUBLIC_URL.root('/'),
 	auth: () => PUBLIC_URL.root('/auth'),
 	products: (query = '') => PUBLIC_URL.root(`/products${query}`),
-	product: (productId = '') => PUBLIC_URL.root(`/product/${productId}`),
-	category: (categoryId = '') => PUBLIC_URL.root(`category/${categoryId}`),
-	color: (colorId = '') => PUBLIC_URL.root(`color/${colorId}`),
+	product: (productId = '') => PUBLIC_URL.root(`/products/${productId}`),
+	category: (categoryId = '') => PUBLIC_URL.root(`/category/${categoryId}`),
+	color: (colorId = '') => PUBLIC_URL.root(`/color/${colorId}`),
 };
 
 export const DASHBOARD_URL = {
